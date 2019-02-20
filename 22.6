@@ -1,0 +1,22 @@
+#include <iostream>
+
+using namespace std;
+
+bool checking(double x, double y, double R, double r)
+{
+    if ((x*x + y*y <= R*R)&&(x*x + y*y >= r))
+        return 1;
+    else
+        return 0;
+}
+
+int main()
+{
+    double x, y, R, r;
+    cin >> x >> y >> R >> r;
+    if (checking(x, y, R, r))
+        cout << "yes";
+    else
+    	cout << "no";
+    return 0;
+}
