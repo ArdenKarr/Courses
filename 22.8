@@ -1,0 +1,22 @@
+#include <iostream>
+
+using namespace std;
+
+bool checking(double a, double b, double c, double d)
+{
+	if ((a <= c)&&(b <= d)||(a <= d)&&(b <= c))
+		return 1;
+	else
+		return 0;
+}
+
+int main()
+{
+	double a, b, c, d;
+	cin >> a >> b >> c >> d;
+	if (checking(a, b, c, d))
+		cout << "yes";
+	else
+		cout << "no";
+	return 0;
+}
