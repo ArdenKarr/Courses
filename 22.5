@@ -1,0 +1,23 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+bool checking(double x, double y)
+{
+    if ((x*x + y*y <= 9)&&(x >= y))
+        return 1;
+    else
+        return 0;
+}
+
+int main()
+{
+    double x, y;
+    cin >> x >> y;
+    if (checking(x, y))
+        cout << "yes";
+    else
+    	cout << "no";
+    return 0;
+}
