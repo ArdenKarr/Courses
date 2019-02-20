@@ -1,0 +1,26 @@
+#include <iostream>
+
+using namespace std;
+
+bool checking(double x1, double y1, double x2, double y2, double x3, double y3)
+{
+	double number1, number2, number3;
+	number1 = x1*(y2 - y1) - y1*(x2 - x1);
+	number2 = x2*(y3 - y2) - y2*(x3 - x2);
+	number3 = x3*(y1 - y3) - y3*(x1 - x3);
+	if ((number1 >= 0)&&(number2 >= 0)&&(number3 >=0)||(number1 <= 0)&&(number2 <= 0)&&(number3 <=0))
+		return 1;
+	else
+		return 0;
+}
+
+int main()
+{
+	double x1, y1, x2, y2, x3, y3;
+	cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3;
+	if (checking(x1, y1, x2, y2, x3, y3))
+		cout << "yes";
+	else
+		cout << "no";
+	return 0;
+}
