@@ -9,9 +9,9 @@ bool checking(double x1, double y1, double x2, double y2, double x3, double y3)
 	number2 = x2*(y3 - y2) - y2*(x3 - x2);
 	number3 = x3*(y1 - y3) - y3*(x1 - x3);
 	if ((number1 >= 0)&&(number2 >= 0)&&(number3 >=0)||(number1 <= 0)&&(number2 <= 0)&&(number3 <=0))
-		return 1;
+		return true;
 	else
-		return 0;
+		return false;
 }
 
 int main()
