@@ -1,0 +1,30 @@
+#include <iostream>
+
+using namespace std;
+
+int find_max(*int numbers, int n)
+{
+    int max = number[0] * number[1];
+    int coordinate = 1;
+    for (int i = 1; i < n - 1; i++)
+    {
+        if (number[i] * number[i + 1] > max)
+        {
+            max = number[i] * number[i + 1];
+            coordinate = i;
+        }
+    }
+    return coordinate;
+}
+
+int main()
+{
+    int n;
+    cin >> n;
+    int *numbers = new int[n];
+    for (int i = 0; i <n; i++)
+        cin >> number[i];
+    int coordinate = find_max(*numbers, n);
+    cout << coordinate << coordinate + 1;
+    return 0;
+}
