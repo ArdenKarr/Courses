@@ -1,0 +1,70 @@
+#include <iostream>
+
+using namespace std;
+
+int find_max(int **numbers, int n, int m)
+{
+    int max = 0;
+    int coordinate = 1;
+    int summ = 0;
+    for (int j = 0; j < m; j++)
+    {
+        max += numbers[0][j];
+    }
+    for (int i = 1; i < n; i++)
+    {
+        for (int j = 0; j < m; j++)
+        {
+            summ += numbers[i][j];
+        }
+        if (max < summ)
+        {
+            max = summ;
+            coordinate = i;
+        }
+        summ = 0;
+        return coordinate;
+    }
+}
+
+int find_min(int **numbers, int n, int m)
+{
+    int min = 0;
+    int coordinate = 1;
+    int summ = 0;
+    for (int j = 0; j < m; j++)
+    {
+        min += numbers[0][j];
+    }
+    for (int i = 1; i < n; i++)
+    {
+        for (int j = 0; j < m; j++)
+        {
+            summ += numbers[i][j];
+        }
+        if (min > summ)
+        {
+            min = summ;
+            coordinate = i;
+        }
+        summ = 0;
+        return coordinate;
+    }
+}
+
+int main()
+{
+    int n, m;
+    cin >> n >> m;
+    int **numbers = new int*[n];
+    for (int i = 0; i < n; i++)
+    {
+        numbers[i] = new int[m];
+        for (int j = 0; j < m; j++)
+            cin >> numbers[n][m];
+    }
+    cout << find_max(numbers, n, m) << " " << find_min(numbers, n, m);
+    for (int i = 0; i < n; i++)
+        delete [] numbers[i];
+    return 0;
+}
