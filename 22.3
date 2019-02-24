@@ -1,0 +1,26 @@
+#include <iostream>
+
+using namespace std;
+
+int count_of_digits(int number)
+{
+	int i = 10;
+	int count = 0;
+	if (number % 10 == 2 || number % 10 == 3 || number % 10 == 5 || number % 10 == 7)
+        count++;
+	while (number / i != 0)
+	{
+		if ((number / i) % 10 == 2 || (number / i) % 10 == 3 || (number /i) % 10 == 5 || (number / i) % 10 == 7)
+			count++;
+		i *= 10;
+	}
+	return count;
+}
+
+int main()
+{
+	int number;
+	cin >> number;
+	cout << count_of_digits(number);
+	return 0;
+}
