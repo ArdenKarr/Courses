@@ -1,3 +1,4 @@
+//Инвертировать матрицу nxm.
 #include <iostream>
 
 using namespace std;
