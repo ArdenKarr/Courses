@@ -1,0 +1,31 @@
+#include <iostream>
+
+using namespace std;
+
+void finding_numbers(int N)
+{
+    if (N > 99)
+        cout << "none";
+    else
+    {
+        cout << "':':";
+        for (int i = 10; i < 100; i++)
+            if (i % N == 0)
+                cout << i << " ";
+        cout << endl << "contains:";
+        if (N / 10 != 0)
+            cout << N;
+        else
+            for (int i = 10; i < 100; i++)
+                if (i / 10 == N || i % 10 == N)
+                    cout << i << " ";
+    }
+}
+
+int main()
+{
+    int N;
+    cin >> N;
+    finding_numbers(N);
+    return 0;
+}
