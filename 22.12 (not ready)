@@ -1,0 +1,53 @@
+#include <iostream>
+
+using namespace std;
+
+int** finding_square(int **matrix, int n, int m)
+{
+    int **square = new int*[3];
+    for (int i = 0; i < n; i++)
+        square[i] = new int[3];
+    int coordinate[2];
+    int max = 0;
+    int summ = 0;
+    for (int i = 1; i < n - 1; i++)
+        for (int j = 1; j < m - 1; j++)
+        {
+            summ = matrix[i + 1][j - 1] + matrix[i + 1][j] + matrix[i + 1][j + 1] + matrix[i][j + 1] + matrix[i][j - 1] + matrix[i][j] + matrix[i - 1][j + 1] + matrix[i - 1][j] + matrix[i - 1][j - 1];
+            if (max < summ)
+            {
+                max = summ;
+                coordinate[0] = i;
+                coordinate[1] = j;
+            }
+            summ = 0;
+        }
+    for (int i = 0; i < 3; i++)
+        for (int j = 0; j < 3; j++)
+            square[i][j] = matrix[coordinate[0] - 1 + i][coordinate[0] - 1 + j];
+    return square;
+}
+
+int main()
+{
+    int n, m;
+    cin >> n >> m;
+    int **matrix = new int*[n];
+    for (int i = 0; i < n; i++)
+        matrix[i] = new int[m];
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < m; j++)
+            cin >> matrix[i][j];
+    int **square = finding_square(matrix, n, m);
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; j++)
+            cout << square[i][j] << " ";
+        cout << endl;
+    }
+    for (int i; i < n; i++)
+        delete [] matrix[i];
+    for (int i = 0; i < 3; i++)
+        delete [] square[i];
+    return 0;
+}
