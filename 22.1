@@ -1,0 +1,19 @@
+#include <iostream>
+
+using namespace std;
+
+int numbering()
+{
+    int summ = 7;
+    for (int i = 0; i < 19; i++)
+    {
+        summ += 7 + 2 * i;
+    }
+    return summ;
+}
+
+int main()
+{
+    cout << numbering();
+    return 0;
+}
