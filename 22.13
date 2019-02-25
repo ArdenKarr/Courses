@@ -1,4 +1,4 @@
-#include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -32,11 +32,17 @@ int* matching_items(int numbers[10], float ave)
 
 int main()
 {
-   int numbers[10];
-   for (int i = 0; i < 10; i++)
-   cin >> numbers[i];
-   int *items = matching_items(numbers,  average(numbers));
-   for (int i = items[0]; i > 0; i--)
-        cout << items[i] << " ";
-   return 0;
+    ifstream fin("Input.txt");
+    ofstream fout("Output.txt");
+    int numbers[10];
+    for (int i = 0; i < 10; i++)
+    fin >> numbers[i];
+    int *items = matching_items(numbers,  average(numbers));
+    for (int i = items[0]; i > 0; i--)
+        fout << items[i] << " ";
+    fin.close();
+    fout.close();
+    delete [] items;
+    return 0;
 }
+
