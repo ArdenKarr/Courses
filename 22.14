@@ -1,0 +1,64 @@
+#include <fstream>
+
+using namespace std;
+
+int finding_max(int *numbers, int n)
+{
+    int max = numbers[0];
+    int coordinate = 0;
+    for (int i = 1; i < n; i++)
+        if (max < numbers[i])
+        {
+            max = numbers[i];
+            coordinate = i;
+        }
+    return coordinate;
+}
+
+int* adding_max(int *numbers, int coordinate, int *max_items, int size_of_max_items)
+{
+    int *new_max_items = new int[size_of_max_items + 1];
+    for (int i = 0; i < size_of_max_items; i++)
+        new_max_items[i] = max_items[i];
+    new_max_items[size_of_max_items] = numbers[coordinate];
+    delete [] max_items;
+    return new_max_items;
+}
+
+int* deleting(int *numbers, int coordinate)
+{
+    int *new_numbers = new int[coordinate];
+    for (int i = 0; i < coordinate; i++)
+        new_numbers[i] = numbers[i];
+    delete [] numbers;
+    return new_numbers;
+}
+
+int main()
+{
+    ifstream fin("Input.txt");
+    ofstream fout("Output.txt");
+    int n;
+    fin >> n;
+    int *numbers = new int[n];
+    for (int i = 0; i < n; i++)
+        fin >> numbers[i];
+    int size_of_max_items = 0;
+    int *max_items;
+    int coordinate = 1;
+    while (coordinate != 0)
+    {
+        coordinate = finding_max(numbers, n);
+        max_items = adding_max(numbers, coordinate, max_items, size_of_max_items);
+        size_of_max_items++;
+        numbers = deleting(numbers, coordinate);
+        n = coordinate;
+    }
+    for (int i = 0; i < size_of_max_items; i++)
+        fout << max_items[i] << " ";
+    fin.close();
+    fout.close();
+    delete [] max_items;
+    delete [] numbers;
+    return 0;
+}
