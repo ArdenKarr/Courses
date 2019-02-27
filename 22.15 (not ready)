@@ -4,24 +4,32 @@ using namespace std;
 
 int **snaping(int n)
 {
-    int **matrix = new int*[n];
+    int **snape = new int*[n];
     for (int i = 0; i < n; i++)
-        matrix[i] = new int[n];
-    if (n / 2 == 0)
+        snape[i] = new int[n];
+    int circle = 1;
+    for (int c = 1; c <= circle; c++)
     {
-        for (int k = n / 2; k > 0; k--)
-        {
-            
-        }
+        for (int )
     }
-    else
-    {
-        
-    }
+    return snape;
 }
 
 int main()
 {
-    
+    int n;
+    cin >> n;
+    int **snape = new int*[n];
+    for (int i = 0; i < n; i++)
+        snape[i] = new int[n];
+    snape = snaping(n);
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+            cout << snape[i][j];
+        cout << endl;
+    }
+    for (int i = 0; i < n; i++)
+        delete [] snape[i];
     return 0;
 }
