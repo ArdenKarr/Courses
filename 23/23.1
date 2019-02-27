@@ -1,0 +1,45 @@
+#include <iostream>
+
+using namespace std;
+
+char *deleting(char *chain, int *n)
+{
+	char *new_chain = new char[*n - (*n / 3)];
+	int j = 0;
+	for (int i = 1; i <= *n; i++)
+		if (i % 3 != 0)
+		{
+			new_chain[j] = chain[i - 1];
+			j++;
+		}
+	delete [] chain;
+	*n = *n - (*n / 3);
+	return new_chain;
+}
+
+int main()
+{
+	int n = 98;
+	int *p;
+	p = &n;
+	char *chain = new char[98];
+	int k = 0;
+	for (int i = 0; i < 14; i++)
+	{
+		chain[i + k * 7] = 'K';
+		chain[i + k * 7 + 1] = 'O';
+		chain[i + k * 7 + 2] = 'J';
+		chain[i + k * 7 + 3] = '3';
+		chain[i + k * 7 + 4] = 'G';
+		chain[i + k * 7 + 5] = 'C';
+		chain[i + k * 7 + 6] = 'F';
+		k++;
+	}
+	while (n != 4)
+	{
+		chain = deleting(chain, p);
+	}
+	cout << chain[2] << " " << chain[3];
+	delete [] chain;
+	return 0;
+}
