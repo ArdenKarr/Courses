@@ -1,0 +1,23 @@
+#include <fstream>
+#include <cmath>
+
+using namespace std;
+
+int numbering_of_time(double v, double x, double  t)
+{
+    int time;
+    time = ceil((v - x) / (x / t));
+    return time;
+}
+
+int main()
+{
+    ifstream fin("Input.txt");
+    ofstream fout("Output.txt");
+    double v, x, t;
+    fin >> v >> x >> t;
+    fout << numbering_of_time(v, x, t);
+    fin.close();
+    fout.close();
+    return 0;
+}
