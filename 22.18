@@ -1,0 +1,23 @@
+#include <iostream>
+
+using namespace std;
+
+int count(int number)
+{
+	int i = 1;
+	int count = 0;
+	while (number / i != 0)
+	{
+		if ((number / i) % (10 * i) % 2 == 0)
+			count++;
+		i *= 10;
+	}
+	return count;
+}
+
+int main() {
+	int number;
+	cin >> number;
+	cout << count(number);
+	return 0;
+}
