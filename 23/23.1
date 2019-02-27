@@ -23,19 +23,17 @@ int main()
 	int *p;
 	p = &n;
 	char *chain = new char[98];
-	int k = 0;
 	for (int i = 0; i < 14; i++)
 	{
-		chain[i + k * 7] = 'K';
-		chain[i + k * 7 + 1] = 'O';
-		chain[i + k * 7 + 2] = 'J';
-		chain[i + k * 7 + 3] = '3';
-		chain[i + k * 7 + 4] = 'G';
-		chain[i + k * 7 + 5] = 'C';
-		chain[i + k * 7 + 6] = 'F';
-		k++;
+		chain[i * 7] = 'K';
+		chain[i * 7 + 1] = 'O';
+		chain[i * 7 + 2] = 'J';
+		chain[i * 7 + 3] = '3';
+		chain[i * 7 + 4] = 'G';
+		chain[i * 7 + 5] = 'C';
+		chain[i * 7 + 6] = 'F';
 	}
-	while (n != 4)
+	while (n > 4)
 	{
 		chain = deleting(chain, p);
 	}
