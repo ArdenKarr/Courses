@@ -1,0 +1,24 @@
+#include <iostream>
+
+using namespace std;
+
+int overviewing(int A, int B)
+{
+	int count = 0;
+	while(A != B)
+	{
+		A = (A + 4) % 23;
+		count++;
+		if (A == B)
+			return count;
+		B = (B + 3) % 23;
+	}
+	return count;
+}
+
+int main()
+{
+	int A = 1, B = 22;
+	cout << overviewing(A, B);
+	return 0;
+}
