@@ -1,0 +1,30 @@
+#include <iostream>
+
+using namespace std;
+
+int *inversing(int *mas)
+{
+	int t;
+	for (int i = 0; i < 10; i++)
+	{
+		t = mas[4] - mas[3];
+		for (int j = 4; j > 0; j--)
+			mas[j] = mas[j - 1];
+		mas[0] = t;
+	}
+	return mas;
+}
+
+int main()
+{
+	int *mas = new int[4];
+	mas[0] = 23;
+	mas[1] = 30;
+	mas[2] = 41;
+	mas[3] = 57;
+	mas[4] = 75;
+	mas = inversing(mas);
+	for (int i = 0; i < 5; i++)
+		cout << mas[i] << " ";
+	return 0;
+}
