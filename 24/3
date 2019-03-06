@@ -1,0 +1,15 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int N, P;
+	cin >> N;
+	P = 10000;
+	for (int i = 1; i <=  N; i++)
+		if (N % i == 0 && 2 * (i + N / i) < P)
+			P = 2 * (i + N / i);
+	cout << P;
+	return 0;
+}
